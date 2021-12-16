@@ -1,0 +1,51 @@
+#cabecalho {
+    background-color: rgb(144, 245, 248);
+    border: 3px midnightblue;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+#titulo-H1 {
+    color: darkblue;
+}
+
+#subtitulo-cabecalho {
+    color: aliceblue;
+    background-color: darkblue;
+    padding: 10px 150px 10px 150px;
+    display: inline;
+
+}
+#barra-de-tarefas {
+    background-color: darkblue;
+}
+
+a {
+    color: ghostwhite;
+    padding: 10px 60px 10px 60px;
+    display: inline;
+}
+
+#rodapé {
+    background-color: midnightblue;
+    padding: 50px 20px 50px 20px;
+}
+
+div {
+    background-color: paleturquoise;
+    text-align: center;
+}
+
+#redes-sociais {
+    background-color: midnightblue;
+    color: ghostwhite;
+}
+
+
+#descricao {
+    background-color: white;
+    color: midnightblue;
+    text-align: center;
+    padding: 10px 60px 10px 60px;
+}
