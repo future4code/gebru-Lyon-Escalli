@@ -118,6 +118,7 @@ td button:hover {
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+
 }
 
 
@@ -138,4 +139,11 @@ td button:hover {
 img {
     width: 40px;
     height: 40px;
+}
+
+#pesquisar {
+    border: 1 none;
+    border-top: 2px;
+    border-left: 2px;
+    border-right: 2px;
 }
