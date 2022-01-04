@@ -1,0 +1,40 @@
+#cabecalho {
+    background-color: rgb(144, 245, 248);
+    border: 3px midnightblue;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+#titulo-H1 {
+    color: darkblue;
+}
+#barra-de-tarefas {
+    background-color: darkblue;
+}
+
+a {
+    color: ghostwhite;
+    padding: 10px 60px 10px 60px;
+    display: inline;
+}
+
+#rodapé {
+    background-color: midnightblue;
+    padding: 50px 20px 50px 20px;
+}
+
+h2 {
+    text-align: center;
+    color: midnightblue;
+}
+
+form {
+    background-color: paleturquoise;
+    color: midnightblue;
+}
+
+button {
+    background-color: ghostwhite;
+    color: midnightblue;
+}
+
