@@ -1,0 +1,190 @@
+
+div {
+  background-image: url(https://ddx5i92cqts4o.cloudfront.net/images/1eioo33qu_VaMpcastle.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+ background-color: black;
+ color: green;
+ border: 3px solid green;
+ margin: 10px 10px 20px 10px;
+ padding: 40px 10px 40px 10px;
+ text-align: center;
+ font-size: 50px;
+}
+
+.menu-inicial {
+  display: inline-block;
+  font-size: 10px;
+  background-color: black;
+  color: green;
+  border: 1px solid green;
+  margin: 1px 10px 10px 17px;
+  padding: 10px 10px 10px 10px;
+}
+
+h2 {
+background-color: black;
+color: green;
+border: 2px solid green;
+font-size: 40px;
+text-align: center;
+margin: 30px 0px 30px 0px;
+padding: 10px 0px 10px 0px
+}
+
+#foto-perfil{
+  display: block;
+  margin: 0px 0px 0px 350px;
+}
+
+.estrela{
+  display: block;
+  text-align: center;
+  font-size: 40px;
+  color: green;
+}
+
+.texto {
+background-color: black;
+color: green;
+border: 2px solid green;
+font-size: 20px;
+text-align: center;
+padding: 30px 30px 30px 30px
+}
+
+h3 {
+background-color: black;
+color: green;
+border: 2px solid green;
+font-size: 30px;
+text-align: center;
+margin: 30px 0px 30px 0px;
+padding: 7px 0px 7px 0px
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+  }
+
+.Uniasselvi {
+  display: flex;
+  flex-direction: row;
+
+}
+#Labenu {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.descricao {
+display: inline-block;
+background-color: black;
+color: green;
+border: 2px solid green;
+font-size: 20px;
+text-align: center;
+padding: 85px 10px 10px 10px
+}
+
+a {
+background-color: black;
+color: green;
+border: 2px solid green;
+display: inline-block;
+font-size: 15px;
+padding: 7px 7px 7px 7px;
+margin: 7px 7px 7px 7px;
+}
+
+.a-especial{
+background: none;
+border: none;
+display: inline-block;
+font-size: 15px;
+padding: 7px 7px 7px 7px;
+margin: 0px 0px 0px -10px;
+}
+
+table {
+  background-color: black;
+  color: green;
+  border: 2px solid green;
+  display: inline-block;
+  margin: 0px 0px 0px 200px;
+  padding: 10px 10px 10px 10px
+}
+
+#tabela-projetos {
+  background-color: black;
+  color: green;
+  border: 2px solid green;
+  display: inline-block;
+  margin: 0px 0px 0px 330px;
+  padding: 10px 10px 10px 10px
+}
+
+label {
+  display: block;
+  background-color: black;
+}
+
+.label {
+  display: inline-block;
+  margin: 0px 0px 0px 350px;
+  color: green;
+  border: 2px solid green;
+}
+
+.icones img {
+   width: 50px;
+   height: 50px;
+  margin: 25px 50px 50px 130px;
+}
+
+button:hover {
+  background-color: green;
+  color: black;
+  border: 1px solid black;
+}
+
+#tabela-especial {
+  text-align: center;
+  background-color: black;
+  color: green;
+  border: 3px solid green;
+  display: inline-block;
+  margin: 7px 0px 0px 14px;
+  padding: 7px 7px 7px 0px;
+  text-align: center;
+}
+
+.projetos:hover {
+  background-color: green;
+  color: black;
+  border: 1px solid black;
+}
+
+.projetos-inicial {
+  display: inline-block;
+  font-size: 12px;
+  background-color: black;
+  color: green;
+  border: 1px solid green;
+  margin: 1px 10px 10px 440px;
+  padding: 10px 10px 10px 10px;
+}
+
+#projeto-especial {
+    background-color: black;
+    color: green;
+    border: 2px solid green;
+    display: inline-block;
+    margin: 1px 10px 10px 380px;
+    padding: 10px 10px 10px 10px
+}
