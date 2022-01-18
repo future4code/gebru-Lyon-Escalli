@@ -40,3 +40,129 @@ footer {
 p {
     font-size: 20px;
 }
+
+@media screen and (max-device-width : 319px) {
+    
+    header {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        justify-items: space-between;
+        align-items: center;
+        background-color:sandybrown;
+        padding: 0px 0px 0px 15px;
+    }
+
+    img {
+        height: 200px;
+        width: 200px;
+    }
+
+    #videos {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        font-size: 10px;
+        text-align: center;
+        justify-items: center;
+        row-gap: 10px;
+        column-gap: 10px;
+        padding: 10px 0px 10px 10px;
+    }
+
+    footer {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        justify-items:center;
+        align-items: center;
+        background-color: gray;
+        color: white
+    }
+
+}
+
+
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    
+    header {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 50fr 20fr 1fr 1fr;
+        justify-items: space-between;
+        align-items: center;
+        background-color:sandybrown;
+        padding: 0px 0px 0px 15px;
+    }
+
+    img {
+        height: 200px;
+        width: 200px;
+    }
+
+    #videos {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        font-size: 10px;
+        text-align: center;
+        justify-items: center;
+        row-gap: 10px;
+        column-gap: 10px;
+        padding: 10px 0px 10px 10px;
+    }
+
+    footer {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        justify-items:center;
+        align-items: center;
+        background-color: gray;
+        color: white
+    }
+
+}
+
+@media screen and (min-device-width : 481px) and (max-device-width : 1000px) {
+    
+    header {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 50fr 20fr 1fr 1fr;
+        justify-items: space-between;
+        align-items: center;
+        background-color:sandybrown;
+        padding: 0px 0px 0px 15px;
+    }
+
+    img {
+        height: 200px;
+        width: 200px;
+    }
+
+    #videos {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        font-size: 10px;
+        text-align: center;
+        justify-items: center;
+        row-gap: 10px;
+        column-gap: 10px;
+        padding: 10px 0px 10px 10px;
+    }
+
+    footer {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        justify-items:center;
+        align-items: center;
+        background-color: gray;
+        color: white
+    }
+
+}
+    
