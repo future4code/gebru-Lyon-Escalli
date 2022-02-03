@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import {IconeComContador} from '../IconeComContador/IconeComContador'
-
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
@@ -14,13 +12,6 @@ const PostContainer = styled.div`
   margin-bottom: 10px;
 `
 
-const PostHeader = styled.div`
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-`
-
 const PostFooter = styled.div`
   height: 40px;
   display: flex;
@@ -29,6 +20,12 @@ const PostFooter = styled.div`
   justify-content: space-between;
 `
 
+const PostHeader = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+`
 const UserPhoto = styled.img`
   height: 30px;
   width: 30px;
@@ -98,7 +95,6 @@ class Post extends React.Component {
       </PostHeader>
 
       <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
-
       <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
