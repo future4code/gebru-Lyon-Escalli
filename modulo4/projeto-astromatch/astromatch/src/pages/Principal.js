@@ -15,21 +15,21 @@ height: 100%;
 border-radius: 15%;
 margin: 5px 0px 5px 0px;
 `
-
+         
 const ButtonLike = styled.button`
 background-color: green;
 color: black;
 border: 1px solid black;
-border-radius: 10px;
-margin: 0px 100px 10px 100px;
+border-radius: 50px;
+margin: 0px 170px 10px 170px;
 `
 
 const ButtonDislike = styled.button`
 background-color: red;
 color: black;
 border: 1px solid black;
-border-radius: 10px;
-margin: 0px 100px 10px 100px;
+border-radius: 50px;
+margin: 0px 170px 10px 170px;
 `
 
 const headers = 'Content-Type: application/json'
@@ -44,7 +44,6 @@ export const Principal = () => {
     .get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/lyon/person")
     .then(response => {
       setPerfilNaoVisto(response.data.profile)
-      console.log(perfilNaoVisto)
     })
     .catch(err => {
       console.log(err);
@@ -89,13 +88,11 @@ export const Principal = () => {
   return (
     <div>
       <ContainerPrincipal>
-        <>
-          <Img src={perfilNaoVisto.photo}/>
-          <p> <b> {perfilNaoVisto.name}, {perfilNaoVisto.age} </b></p>
-          <p> <b> {perfilNaoVisto.bio} </b></p>
-          <ButtonLike onClick={() => like(perfilNaoVisto.id)}> <b> Like </b></ButtonLike>
-          <ButtonDislike onClick={() => dislike(perfilNaoVisto.id)}> <b> Dislike </b></ButtonDislike>
-        </>
+        <Img src={perfilNaoVisto.photo}/>
+        <p> <b> {perfilNaoVisto.name}, {perfilNaoVisto.age} </b></p>
+        <p> <b> {perfilNaoVisto.bio} </b></p>
+        <ButtonLike onClick={() => like(perfilNaoVisto.id)}><span class="material-icons">favorite_border </span></ButtonLike>
+        <ButtonDislike onClick={() => dislike(perfilNaoVisto.id)}><span class="material-icons">highlight_off </span></ButtonDislike>
       </ContainerPrincipal> 
     </div>
   );
