@@ -1,9 +1,10 @@
 import React from 'react';
+import Routess from './routes/Routess'
 
 const App = () => {
   return (
     <div>
-      <h1>Olá!</h1>
+      <Routess />
     </div>
   );
 }
