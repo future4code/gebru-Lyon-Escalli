@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import AdminHomePage from '../pages/ApplicationFormPage'
+import AdminHomePage from '../pages/AdminHomePage'
 import ApplicationFormPage from '../pages/ApplicationFormPage'
 import CreateTripPage from '../pages/CreateTripPage'
 import HomePage from '../pages/HomePage'

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { goToListTripsPage } from '../routes/Coordinator'
-import { goToLoginPage } from '../routes/Coordinator'
+import { goToAdminHomePage, goToListTripsPage } from '../routes/Coordinator'
 
 const HomePage = () => {
     const navigate = useNavigate()
@@ -10,7 +9,7 @@ const HomePage = () => {
         <>
           <p>Home Page</p>
           <button onClick={() => goToListTripsPage(navigate)}>Lista de Viagens</button>
-          <button onClick={() => goToLoginPage(navigate)}>Acesso Administrador</button>
+          <button onClick={() => goToAdminHomePage(navigate)}>Acesso Administrador</button>
         </>
     )
 }

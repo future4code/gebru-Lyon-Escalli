@@ -1,18 +1,30 @@
-//Para o administrador ver a lista de viagens e poder deletá-las ou acessar o detalhe de cada uma delas
-
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { goToCreateTripPage, goToHomePage, goToTripDetailsPage } from '../routes/Coordinator'
+import { goToCreateTripPage, goToTripDetailsPage, goToLoginPage, goToHomePage } from '../routes/Coordinator'
 
 const AdminHomePage = () => {
     const navigate = useNavigate()
 
+    const token = localStorage.getItem("token")
+  
+    useEffect (() => {
+      if(token === null) {
+        goToLoginPage(navigate)
+      }
+    },[navigate])
+  
+    const goToLogout = () => {
+      localStorage.removeItem("token")
+      goToLoginPage(navigate)
+    }
+
     return (
         <>
           <p>Administrador - Home</p>
-          <button onClick={() => goToHomePage(navigate)}>Home</button>
           <button onClick={() => goToTripDetailsPage(navigate)}>Detalhes da Viagem</button>
           <button onClick={() => goToCreateTripPage(navigate)}>Criar Viagem</button>
+          <button onClick={() => goToHomePage(navigate)}>Home</button>
+          <button onClick={goToLogout}>Logout</button>
         </>
     )
 }
