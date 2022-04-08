@@ -2,25 +2,29 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export const useRequestData = (url, auth) => {
-    const [data, setData] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState("")
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
 
-    useEffect(() => {
-        setIsLoading(true);
+  const getData = () => {
+    setIsLoading(true);
 
-        axios
-        .get(url, auth)
-        .then((res) => {
-            setIsLoading(false);
-            setData(res.data);
-        })
-        .catch((err) => {
-            setIsLoading(false);
-            setError(err)
-        })
-    }, [url])
+    axios
+    .get(url, auth)
+    .then((res) => {
+      setIsLoading(false);
+      setData(res.data);
+    })
+    .catch((err) => {
+      setIsLoading(false);
+      setError(err)
+    })
+  }
 
-    return [data, isLoading, error]
+  useEffect(() => {
+    getData()
+  }, [url])
+
+  return [data, isLoading, error, getData]
 }
 
