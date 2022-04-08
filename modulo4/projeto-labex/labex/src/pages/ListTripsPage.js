@@ -12,8 +12,21 @@ const ListTripsPage = () => {
 
    const allTrips = 
     tripsList.trips && tripsList.trips.map((trip) => {
-    return <li key={trip.id}>{trip.name}</li>
+    return <li key={trip.id}>
+      <p>Nome da viagem: {trip.name}</p>
+      <p>Planeta: {trip.planet}</p>
+      <p>Duração: {trip.durationInDays}</p>
+      <p>Data: {trip.date}</p>
+      <p>Descrição: {trip.description}</p>
+      <button onClick={() => applyToTrip(trip.id)}> Candidate-se a esta viagem!</button>
+      </li>
   })
+
+  const applyToTrip = (tripID) => {
+    localStorage.removeItem("TripIdApply")
+    localStorage.setItem("TripIdApply",tripID)
+    goToApplicationFormPage(navigate)
+  }
 
     return (
         <>
@@ -23,7 +36,6 @@ const ListTripsPage = () => {
           {!isLoading && tripsList.trips && tripsList.trips.length > 0 && allTrips}
           {!isLoading && tripsList && tripsList.length === 0 && (<p>Não há viagens disponíveis no momento, tente novamente mais tarde.</p>)}
           <button onClick={() => goToHomePage(navigate)}>Home</button>
-          <button onClick={() => goToApplicationFormPage(navigate)}>Cadastrar em nova viagem</button>
         </>
     )
 }
