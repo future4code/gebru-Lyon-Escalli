@@ -1,0 +1,11 @@
+{
+  "name": "package-json",
+  "version": "1.0.0",
+  "description": "Adicionar tarefa",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Lyon Heitor",
+  "license": "ISC"
+}
