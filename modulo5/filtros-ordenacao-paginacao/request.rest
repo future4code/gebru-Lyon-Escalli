@@ -1,0 +1,17 @@
+//padrão
+GET http://localhost:3003/users
+###
+//filtro nome query
+GET http://localhost:3003/users?name=ote
+###
+//filtro tipo de usuário params
+GET http://localhost:3003/users/Teacher
+###
+//ordenação por nome crescente
+GET http://localhost:3003/usersOrd?sort=name&order=ASC
+###
+//paginação 5 usuários por vez + pagina desejada
+GET http://localhost:3003/usersPag?size=5&page=2
+###
+//pegar dados com todas as filtragens anteriores
+GET http://localhost:3003/usersData?name=a&sort=name&order=ASC&size=10&page=1
