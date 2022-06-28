@@ -53,7 +53,7 @@ c) O SQL vai acusar um erro de que não existe o id informado, consultado na rel
 
 d) o SQL não irá apagar por conta da relação da foreign key; tem de apagar primeiro a participação do ator no elenco do filme para conseguir apagar o ator.
 
-####################### EXERCÍCIO 02 #########################
+####################### EXERCÍCIO 03 #########################
 
 a) é como se fosse um 'no qual', parecido com 'where'; ele vai buscar os resultados no qual tabela x corresponde a tabela y.
 
