@@ -1,0 +1,11 @@
+//criar novo usuário
+POST http://localhost:3003/users
+
+{
+    "name": "aluno teste 01",
+    "email": "alunoteste01@gmail.com",
+    "password": "123456"
+}
+###
+GET http://localhost:3003/users 
+###
