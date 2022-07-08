@@ -14,7 +14,8 @@ export type user = {
 
 export type purchase = {
    id: string
-   name: string
-   email: string
-   password: string
+   user_id: string
+   product_id: string
+   quantity: number
+   total_price: number
 }

@@ -1,12 +1,28 @@
 import { Request, Response } from "express"
 import { connection } from "../data/connection"
 import { v4 as uuidv4 } from 'uuid';
+import { product, user, purchase } from "../types"
+import { transporter } from "../services/emailTransporter";
 
 const erros: {[key: string]: {status: number, message: string}} = {
     MISSING_PARAMETERS: {status: 422, message: "Informações faltando; verificar documentação."},
     NOT_FOUND: {status: 404, message: "Nenhum dado encontrado."},
     SOME_ERROR: {status: 500, message: "Algo deu errado."}
 };
+
+const showErrors = (res: any, error: any) => {
+    switch (error.message) {
+        case erros.MISSING_PARAMETERS.message:
+            res.status(erros.MISSING_PARAMETERS.status).send(erros.MISSING_PARAMETERS.message)
+            break;
+        case erros.NOT_FOUND.message:
+            res.status(erros.NOT_FOUND.status).send(erros.NOT_FOUND.message)
+            break;
+        default:
+            res.status(erros.SOME_ERROR.status).send(erros.SOME_ERROR.message)
+            break;
+    };
+}
 
 export const createUser = async(req: Request,res: Response): Promise<void> =>{
 
@@ -18,25 +34,28 @@ export const createUser = async(req: Request,res: Response): Promise<void> =>{
             throw new Error(erros.MISSING_PARAMETERS.message)
         }
 
-        await connection('labecommerce_users').insert({
+        const newUser: user = {
             id: uuidv4(),
             name,
             email,
             password
+        }
+
+        await connection('labecommerce_users').insert(newUser);
+
+        await transporter.sendMail({
+            from: "<testelabecommerce01@bol.com.br>",
+            to: email,
+            subject: "Mensagem de confirmação",
+            text: `Olá, ${name}! A sua conta foi criada com sucesso!`,
+            html: `<p>Olá, ${name}! A sua conta foi criada com sucesso!</p>`
         });
 
         res.status(201).send("Usuário criado com sucesso!")
 
  
-    } catch (error: any) {
-        switch (error.message) {
-            case erros.MISSING_PARAMETERS.message:
-                res.status(erros.MISSING_PARAMETERS.status).send(erros.MISSING_PARAMETERS.message)
-                break;
-            default:
-                res.status(erros.SOME_ERROR.status).send(erros.SOME_ERROR.message)
-                break;
-        };
+    } catch (error) {
+        showErrors(res, error);
     }
 };
 
@@ -51,18 +70,8 @@ export const createUser = async(req: Request,res: Response): Promise<void> =>{
 
         res.status(200).send(users)
 
-    } catch (error: any) {
-        switch (error.message) {
-            case erros.MISSING_PARAMETERS.message:
-                res.status(erros.MISSING_PARAMETERS.status).send(erros.MISSING_PARAMETERS.message)
-                break;
-            case erros.NOT_FOUND.message:
-                res.status(erros.NOT_FOUND.status).send(erros.NOT_FOUND.message)
-                break;
-            default:
-                res.status(erros.SOME_ERROR.status).send(erros.SOME_ERROR.message)
-                break;
-        };
+    } catch (error) {
+        showErrors(res, error);
     }
 };
 
@@ -76,24 +85,19 @@ export const createProduct = async(req: Request,res: Response): Promise<void> =>
             throw new Error(erros.MISSING_PARAMETERS.message)
         }
 
-        await connection('labecommerce_products').insert({
+        const newProduct: product = {
             id: uuidv4(),
             name,
             price,
             image_url
-        });
+        }
+
+        await connection('labecommerce_products').insert(newProduct);
 
         res.status(201).send("Produto criado com sucesso!")
 
-    } catch (error: any) {
-        switch (error.message) {
-            case erros.MISSING_PARAMETERS.message:
-                res.status(erros.MISSING_PARAMETERS.status).send(erros.MISSING_PARAMETERS.message)
-                break;
-            default:
-                res.status(erros.SOME_ERROR.status).send(erros.SOME_ERROR.message)
-                break;
-        };
+    } catch (error) {
+        showErrors(res, error);
     }
  }
 
@@ -104,11 +108,11 @@ export const getAllProducts = async (req: Request, res: Response) => {
         let order = req.query.order as string
 
         if(!search) {
-            search = "%"
+            search = "id"
         }
 
         if(order?.toUpperCase() !== "ASC" || order?.toUpperCase() !== "DESC"){
-           order = "%"
+           order = "ACS"
         }
 
         const products = await connection('labecommerce_products')
@@ -121,18 +125,8 @@ export const getAllProducts = async (req: Request, res: Response) => {
 
         res.status(200).send(products)
 
-    } catch (error: any) {
-        switch (error.message) {
-            case erros.MISSING_PARAMETERS.message:
-                res.status(erros.MISSING_PARAMETERS.status).send(erros.MISSING_PARAMETERS.message)
-                break;
-            case erros.NOT_FOUND.message:
-                res.status(erros.NOT_FOUND.status).send(erros.NOT_FOUND.message)
-                break;
-            default:
-                res.status(erros.SOME_ERROR.status).send(erros.SOME_ERROR.message)
-                break;
-        };
+    } catch (error) {
+        showErrors(res, error);
     }
 };
 
@@ -148,26 +142,21 @@ export const createPurchaseRegister = async(req: Request,res: Response): Promise
 
         const totalPrice: number = price * quantity
 
-        await connection('labecommerce_purchases').insert({
+        const newPurchase: purchase = {
             id: uuidv4(),
             user_id,
             product_id,
             quantity,
             total_price: totalPrice
-        });
+        }
+
+        await connection('labecommerce_purchases').insert(newPurchase);
 
         res.status(201).send("Compra registrada com sucesso!")
 
  
-    } catch (error: any) {
-        switch (error.message) {
-            case erros.MISSING_PARAMETERS.message:
-                res.status(erros.MISSING_PARAMETERS.status).send(erros.MISSING_PARAMETERS.message)
-                break;
-            default:
-                res.status(erros.SOME_ERROR.status).send(erros.SOME_ERROR.message)
-                break;
-        };
+    } catch (error) {
+        showErrors(res, error);
     }
 };
 
@@ -190,18 +179,8 @@ export const getUserPurchase = async (req: Request, res: Response) => {
 
         res.status(200).send(purchase)
 
-    } catch (error: any) {
-        switch (error.message) {
-            case erros.MISSING_PARAMETERS.message:
-                res.status(erros.MISSING_PARAMETERS.status).send(erros.MISSING_PARAMETERS.message)
-                break;
-            case erros.NOT_FOUND.message:
-                res.status(erros.NOT_FOUND.status).send(erros.NOT_FOUND.message)
-                break;
-            default:
-                res.status(erros.SOME_ERROR.status).send(erros.SOME_ERROR.message)
-                break;
-        };
+    } catch (error) {
+        showErrors(res, error);
     }
 };
 
