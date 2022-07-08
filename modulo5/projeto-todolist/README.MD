@@ -1,0 +1,1 @@
+### Logica do código criada dentro de controllers, user.ts.
