@@ -1,13 +1,14 @@
 import { UserDatabase } from "../data/UserDatabase"
-import { v4 as generateId } from 'uuid'
+import { MissingParameters } from "../error/customError"
+import { gerarNovoId } from "../services/generateId"
 
 export class UserBusiness {
   async create({ email, name, password }: any):Promise<void> {
     if (!email || !name || !password) {
-      throw new Error("Dados inválidos (email, name, password)")
+      throw new MissingParameters()
     }
 
-    const id = generateId()
+    const id = gerarNovoId
 
     const userDatabase = new UserDatabase()
     await userDatabase.create({
