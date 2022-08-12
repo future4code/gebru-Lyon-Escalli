@@ -1,7 +1,11 @@
-import { connection } from "./index"
+import { BaseDatabase } from './BaseDatabase'
 
-connection
-   .raw(`
+const printError = (error: any) => { console.log(error.sqlMessage || error.message) }
+
+class Migration extends BaseDatabase {
+
+   private closeConnection = () => { BaseDatabase.connection.destroy() }
+   private createTables = () => BaseDatabase.connection.raw(`
       CREATE TABLE IF NOT EXISTS labook_users(
          id VARCHAR(255) PRIMARY KEY,
          name VARCHAR(255) NOT NULL,
@@ -19,5 +23,17 @@ connection
          FOREIGN KEY (author_id) REFERENCES labook_users (id)
       )
    `)
-   .then(console.log)
-   .catch(console.log)
+   .then(() => { console.log("Tabelas criadas") })
+   .catch(printError)
+   .finally(this.closeConnection)
+
+   public createDB = () => {
+      return this.createTables()
+   }
+   static createDB: any
+
+}
+
+const newDatabase = new Migration;
+
+newDatabase.createDB();
