@@ -1,19 +1,7 @@
 PROJETO CASE 01 / BACKEND - AMARO
 
-Link da documentação:
+Link da documentação: https://documenter.getpostman.com/view/19721482/2s83tCLYZF
 
-Comando para criação de tabelas (após configurar .env): npm run migrations
+Link da API no Heroku: https://case-01-amaro-lyon-gebru.herokuapp.com/
 
-Estrutura do arquivo .env:
-
-DB_HOST = ""
-DB_USER = ""
-DB_PASSWORD = ""
-DB_SCHEMA = ""
-PORT = 3004
-
-JWT_EXPIRES_IN = 24h
-JWT_KEY = 
-BCRYPT_COST = 12
-
-
+Link do desafio proposto: https://github.com/amaroteam/back-end-challenge
