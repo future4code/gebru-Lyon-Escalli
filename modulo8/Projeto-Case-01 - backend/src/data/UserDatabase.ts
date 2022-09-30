@@ -4,7 +4,7 @@ import { UserRepository } from "../business/UserRepository";
 
 export class UserDatabase extends BaseDataBase implements UserRepository {
 
-   protected tableName: string = "users_lama";
+   protected tableName: string = "amaro_users";
 
    private toModel(dbModel?: any): User | undefined {
       return (

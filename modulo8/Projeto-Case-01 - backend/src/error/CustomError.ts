@@ -63,3 +63,9 @@ export class UserNotFound extends CustomError{
       super(404, "Usuário não encontrado")
   }
 }
+
+export class ServerError extends CustomError{ 
+  constructor(){
+      super(500, "Erro inexperado no servidor.")
+  }
+}

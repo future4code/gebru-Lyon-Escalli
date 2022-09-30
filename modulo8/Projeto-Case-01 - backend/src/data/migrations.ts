@@ -7,7 +7,18 @@ class Migrations extends BaseDatabase {
    private closeConnection = () => { BaseDatabase.connection.destroy() }
    private createTables = () => BaseDatabase.connection
    .raw(`
-      
+   CREATE TABLE IF NOT EXISTS amaro_users (
+      id VARCHAR(255) PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      email VARCHAR(255) NOT NULL,
+      password VARCHAR(255) NOT NULL,
+      role VARCHAR(64) NOT NULL
+   );
+   CREATE TABLE IF NOT EXISTS amaro_products (
+      id VARCHAR(255) PRIMARY KEY,
+      title VARCHAR(255) NOT NULL,
+      description VARCHAR(255) NOT NULL
+   );
 `)
    .then(() => { console.log("Tabelas criadas") })
    .catch(printError)
@@ -16,10 +27,9 @@ class Migrations extends BaseDatabase {
    public createDB = () => {
       return this.createTables()
    }
-   static createDB: any
    
 }
 
-const newDatabase = new Migrations;
+const newDatabase = new Migrations();
 
 newDatabase.createDB();

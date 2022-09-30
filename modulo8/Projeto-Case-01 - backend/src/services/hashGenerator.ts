@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
-import { IHashGenerator } from "../business/Ports";
 
-export class HashGenerator implements IHashGenerator {
+export class HashGenerator{
    public hash = async (s: string): Promise<any> => {
       const rounds: number = Number(process.env.BCRYPT_COST)
       const salt = await bcrypt.genSalt(rounds)

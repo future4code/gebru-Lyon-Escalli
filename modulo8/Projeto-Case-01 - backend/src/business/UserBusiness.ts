@@ -9,15 +9,17 @@ import {
     UserNotFound 
 } from "../error/CustomError";
 import { User } from "../model/User";
-import { IHashGenerator, IIDGenerator, ITokenGenerator } from "./Ports";
+import { HashGenerator} from "../services/hashGenerator";
+import { TokenGenerator } from "../services/tokenGenerator";
 import { UserRepository } from "./UserRepository";
+import { IdGenerator } from "../services/IdGenerator";
 
 export class UserBusiness {
    constructor(
       private userDatabase: UserRepository,
-      private hashGenerator: IHashGenerator,
-      private idGenerator: IIDGenerator,
-      private tokenGenerator: ITokenGenerator
+      private hashGenerator: HashGenerator,
+      private idGenerator: IdGenerator,
+      private tokenGenerator: TokenGenerator
    ){}
 
    public async signup(

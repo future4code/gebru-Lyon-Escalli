@@ -1,11 +1,10 @@
 import * as jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { ITokenGenerator } from "../business/Ports";
 
 dotenv.config();
 
-export class TokenGenerator implements ITokenGenerator {
-  private static expiresIn = process.env.JWT_DURATION;
+export class TokenGenerator {
+  private static expiresIn = process.env.JWT_EXPIRES_IN;
 
   public generate = (input: AuthenticationData): string => {
     const newToken = jwt.sign(
